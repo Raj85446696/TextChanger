@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical12</title>
+    <style>
+        .container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container h1{
+            font-size: 15px;
+            color:red;
+            background-color:beige;
+            text-align: center;
+            padding: 30px;
+            border-radius: 2px;
+        }
+        button{
+            background-color: darkslategray;
+            color: white;
+            font-size: 15px;
+            padding: 10px;
+            width: 40px;
+            border-radius: 10px;
+            border:none;
+        }
+        .text{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;color: grey;">Incresing and Decresing Text Using Button</h1>
+    <div class="container">
+        <div class="text">
+            <h1 id="text">Bigger Text</h1>
+            <button onclick="Increse()" id="increse">+</button>
+            <button onclick="Decrese()" id="decrese">-</button>
+        </div>
+    </div>
+
+
+    <script>
+        let text = document.querySelector('#text'); 
+        let increse = document.querySelector('#increse'); 
+        let decrese = document.querySelector('#decrese');
+        let fontsize = 15 ; 
+
+        function Increse(){
+            if(fontsize>=50){
+                text.innerText = "Smaller Text";
+                text.style.color = "green";
+                console.log("Maximum size reach 50px.")
+                return;
+            }
+            fontsize+=5; 
+            text.style.fontSize = fontsize+"px";
+        }
+
+        function Decrese(){
+            if(fontsize<=5){
+                text.innerText = "Bigger Text";
+                text.style.color = "red";
+                console.log("Minimum size reach 50px.")
+                return;
+            }
+            fontsize-=5; 
+            text.style.fontSize = fontsize+"px";
+        }
+        
+        setInterval(Increse,1000);
+        setInterval(Decrese,1000);
+
+
+
+
+    </script>
+</body>
+</html>
